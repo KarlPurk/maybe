@@ -1,6 +1,6 @@
 # Maybe.js
 
-An implementation of the Maybe Monad written in CoffeeScript.
+An implementation inspired by the Maybe Monad written in CoffeeScript.
 
 # Basic usage
 
@@ -23,13 +23,13 @@ value is 'Unknown' # true
 **Example One**: Invoke a callback when the property you request does exist
 ```coffee
 person = address: state: 'NY'
-new Maybe(person).has('address').has('state').error(-> console.log 'not called').then((value) -> console.log value)
+new Maybe(person).has('address').has('state').error(...).then((value) -> console.log value)
 # 'NY' is logged to the console
 ```
 
 **Example Two**: Invoke a callback when the property you request does not exist
 ```coffee
 person = {}
-new Maybe(person).has('address').has('state').error(-> console.log 'error occurred').then((value) -> console.log 'not called')
+new Maybe(person).has('address').has('state').error(-> console.log 'error occurred').then(...)
 # 'error occurred' is logged to the console
 ```
