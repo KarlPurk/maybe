@@ -1,4 +1,4 @@
-  describe "maybe", ->
+describe "Maybe", ->
 
   it "should return deep value if it exists", ->
     person = address: state: 'NY'
@@ -32,13 +32,13 @@
     person = address: state: 'NY'
     called = false
     state = 'Unknown'
-    new Maybe(person).has('address').has('state').then((value) -> called = true)
+    new Maybe(person).has('address').has('state').then(-> called = true)
     expect(called).toBe true
 
   it "should not invoke error callback when value does exist", ->
     person = address: state: 'NY'
     called = false
-    new Maybe(person).has('address').has('state').error( -> called = true)
+    new Maybe(person).has('address').has('state').error(-> called = true)
     expect(called).toBe false
 
   it "then should return value of last property selector", ->
@@ -46,3 +46,4 @@
     state = 'Unknown'
     new Maybe(person).has('address').has('state').then((value) -> state = value)
     expect(state).toBe person.address.state
+
