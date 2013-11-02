@@ -1,6 +1,6 @@
 # Maybe.js
 
-An implementation inspired by the Maybe Monad written in CoffeeScript.
+A JavaScript Maybe implementation written in CoffeeScript.
 
 # Basic usage
 
