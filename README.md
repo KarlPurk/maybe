@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/KarlPurk/jsmapper.png)](https://travis-ci.org/KarlPurk/compaginator)
 # Maybe.js
 
 A JavaScript Maybe implementation written in CoffeeScript.
