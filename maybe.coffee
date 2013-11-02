@@ -12,7 +12,7 @@ class window.Maybe
   getValue: ->
     @value
 
-class window.Nothing extends window.Maybe
+class Nothing extends window.Maybe
   constructor: (value = null) ->
     super(value)
   isNothing: (cb) -> cb(); @
