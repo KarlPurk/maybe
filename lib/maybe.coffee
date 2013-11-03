@@ -35,6 +35,27 @@ class window.Maybe
   getValue: ->
     @value
 
+  ###
+    Adds a new Maybe to the chain, permitting OR like logic.
+  ###
+  orMaybe: (value) ->
+    # If we call onMaybe on a valid Maybe then we want to return
+    # a new Something so that this Maybe's value is carried through
+    # the execution chain to the getValue call
+    new Something @value
+
+###
+  Carrries a value and allows the user to retrieve it.
+  This is used with orMaybe and allows the first valid value to be carried
+  through the call stack so that the last getValue call in the chain is able
+  to return the first valid value found.
+###
+class Something extends window.Maybe
+  constructor: (value) -> @value = value
+  error: -> @
+  then: -> @
+  has: -> @
+
 ###
   Represents the absence of a property. Although nothing can still hold a value,
   this happens when the user specifies a default value.
@@ -64,3 +85,9 @@ class Nothing extends window.Maybe
     return the default value instead.
   ###
   getValue: -> if @value? then return @value else throw Error('Nothing does not have a value')
+
+  ###
+    Adds a new Maybe to the chain, permitting OR like logic.
+  ###
+  orMaybe: (value) ->
+    new Maybe value
