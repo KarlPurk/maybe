@@ -1,7 +1,11 @@
 [![Build Status](https://travis-ci.org/KarlPurk/jsmapper.png)](https://travis-ci.org/KarlPurk/maybe)
 # Maybe.js
 
-A JavaScript Maybe implementation written in CoffeeScript.
+Is it a bird? Is it a plane? Is it a Maybe? Is it a Monad? Maybe.
+
+```javascript
+new Maybe(this).has('isMaybe').has('isMonad').getValue(); // Likely false
+```
 
 # Basic usage
 
