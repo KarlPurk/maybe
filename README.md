@@ -19,6 +19,14 @@ value = new Maybe(person).has('address').has('state', 'Unknown').getValue()
 value is 'Unknown' # true
 ```
 
+**Example Three**: Try alternate property paths with orMaybe
+```coffee
+person = {state: 'NY'}
+value = new Maybe(person).has('state').orMaybe(person).has('address').has('state').getValue()
+value = new Maybe(person).has('address').has('state').orMaybe(person).has('state').getValue()
+value is 'NY' # true
+```
+
 # Using callbacks
 
 **Example One**: Invoke a callback when the property you request does exist
