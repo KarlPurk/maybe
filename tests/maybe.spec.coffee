@@ -47,3 +47,9 @@ describe "Maybe", ->
     new Maybe(person).has('address').has('state').then((value) -> state = value)
     expect(state).toBe person.address.state
 
+  it "orMaybe should allow OR like logic", ->
+    person = address: state: 'NY'
+    state = new Maybe(person).has('state').orMaybe(person).has('address').has('state').getValue()
+    expect(state).toBe person.address.state
+    state = new Maybe(person).has('address').has('state').orMaybe(person).has('state').getValue()
+    expect(state).toBe person.address.state
